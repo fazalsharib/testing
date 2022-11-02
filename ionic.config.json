@@ -1,0 +1,7 @@
+{
+  "name": "4pl",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
