@@ -1,0 +1,52 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+ion-input{
+  border: 1px solid #291670;
+  text-align: center !important;
+  color: darkblue;
+}
+ion-label{
+  // color: #FFA700 !important;
+  font-weight: bold;
+}
+.button-native1{
+  --background: red;
+  color: white;
+  height: 40px;
+  width: 140px;
+}
+.button-native{
+  --background: green;
+  color: white;
+  height: 40px;
+  width: 140px;
+}
+#labelblue{
+  color: darkblue;
+  font-weight: bold;
+}
+select{
+  height: 46px;
+  text-align: center;
+  border: 1px solid darkblue;
+  color: darkblue;
+}
+
+
+.item-native1{
+  --background: whitesmoke;
+  margin-bottom: 10px;
+}
+.item-native2{
+  --background: midnightblue;
+}
+.button-native{
+  --background: midnightblue !important;
+}
+

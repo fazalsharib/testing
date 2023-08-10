@@ -1,0 +1,35 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+ion-input{
+  border: 1px solid #291670;
+  text-align: center !important;
+  font-size:x-large;
+  border-radius: 10px;
+  color: darkblue;
+}
+h5{
+  color: midnightblue;
+  text-align: center !important;
+}
+
+.header{
+  height: 10rem;
+  background: #291670;
+  // border-bottom-left-radius: 30px;
+  // border-bottom-right-radius: 30px;
+}
+.button-native{
+  --border-radius: 20px;
+  --color: white;
+  --background: #DB311B;
+  --font-weight: bolder;
+}
+.sc-ion-searchbar-md-h{
+  --border-radius: 20px;
+}

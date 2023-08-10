@@ -1,0 +1,46 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+.button-native{
+  --background: midnightblue;
+  border-radius: 8px !important;
+}
+.item-native{
+  border: 1px solid gray;
+  border-radius: 12px;
+  margin: 10px;
+}
+ion-card{
+  background: white;
+  border-radius: 10px;
+  border: 1px solid;
+}
+ion-label{
+  margin-left: 4px;
+}
+.item-native1{
+  border: 1px solid midnightblue;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.item-native2{
+  border: 1px solid midnightblue;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.item-native-modify{
+    border: 1px solid midnightblue;
+    border-radius: 0px;
+    margin-left: 21px;
+    margin-right: 18px;
+    margin-top: 10px;
+}
+.title .date { float:right }
+.title .name { float:left }

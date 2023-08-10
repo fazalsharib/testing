@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Pick Up</ion-title>
+    <!-- <ion-icon name="notifications-outline" slot="end" style="color:white; padding-right: 12px; font-size: 22px;"></ion-icon>
+    <ion-avatar slot="end" style="background-color: white; height: 40px; width: 40px;margin-right: 10px;border: 1px solid #DB311B;">
+      <img src="{{userInfo?.Logo}}">
+    </ion-avatar> -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar type="number" style="background-color: #291670;" placeholder="Enter Order Number Here....!"></ion-searchbar>
+</ion-header>
+<ion-content scroll-y="true">
+  <ion-card style="border: 1px solid darkblue; border-radius: 20px;">
+  <ion-row >
+    <ion-col style="padding: 30px;" >
+      <h5 style="text-align: center;" >Pickup pending</h5>
+      <ion-input type="number"[(ngModel)]="pickup" disabled="true" style="color: red" value="{{allData?.PickupPending}}"></ion-input>
+    </ion-col>
+    <ion-col style="padding: 30px;">
+      <h5 style="text-align: center;">Pickup Done</h5>
+      <ion-input type="number" [(ngModel)]="pendingDone" disabled="true" style="color: green" value="{{allData?.PickupDone}}"></ion-input>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+    <ion-card style="border: 1px solid darkblue; border-radius: 20px;" *ngFor="let listData of listData">
+      <ion-row >
+        <ion-col>
+            <h5 style="padding-top: 20px;">AWB Number</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; padding-top: 20px; ">{{listData.AwbNo}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+            <h5>Order Number</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">{{listData.OrderNo}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+            <h5>Order Date</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">{{listData.Bookdate}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Shipper</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">{{listData.Shipper_Name}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+            <h5>Address</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">{{listData.Address}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Contact</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">{{listData.Customer_Tel}}</h5>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="text-align: center;">
+        <ion-col>
+          <img src="../../../assets/icon/Phone.png">
+          <p >Call</p>
+        </ion-col>
+        <ion-col>
+          <img src="../../../assets/icon/message.png">
+          <p >Message</p>
+        </ion-col>
+        <ion-col (click)="pickupDone(listData)">
+          <img src="../../../assets/icon/Update.png">
+          <p >PickUp Done</p>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+</ion-content>
+
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container">
+    <ion-row style="text-align: center; font-size: 14px;">
+      <ion-col style="border-right: 1px solid;" (click)="openDashboard()"><ion-icon name="home"></ion-icon>&nbsp; &nbsp;Home</ion-col>
+      <ion-col style="border-right: 1px solid;" (click)="openProfile()"><ion-icon name="person"></ion-icon>&nbsp; &nbsp;Profile</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

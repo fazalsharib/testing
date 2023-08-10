@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white; font-style: italic; font-weight: bold; font-size: 16px;" >Invoice-Print</ion-title>
+    <ion-buttons slot="start" style="color: white;">
+      <ion-back-button defaultHref="e-wallet"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="PrintInvoice" class="invoice-box" style="max-width: 800px;margin: auto; padding: 10px;border: 1px solid #eee;box-shadow: 0 0 10px rgba(0, 0, 0, .15);font-size: 16px;line-height: 24px;font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;color: #555;">
+    <ion-row style="border-bottom: 1px dashed black;" >
+      <ion-col>
+        <img src="../../assets/icon/3pl.png" style="height: 95px; width: 195px;">
+        <!-- <img src="{{listData.VendorLogo}}" style="height: 95px; width: 195px;"> -->
+        <!-- <p style="font-weight: 600; color: black;">3PL India.com</p> -->
+      </ion-col>
+      <ion-col>
+        <p style="font-weight: 600; color: black;">Tax Invoice/ Bill of supply / cash memo for receipt.</p>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-label>Invoice No: INV-8767668</ion-label> -->
+
+    <ion-row style="margin-top: 10px;" >
+      <ion-col style="border-right: 1px dashed black;"><span style="font-weight: 600; color: black;">BILL FROM:-</span><br>
+        <span style="font-weight: 600;">{{customer.Customer_name | uppercase}}</span><br>
+        Address-1: <span style="color: black;">{{customer.Customer_Add1 | uppercase}}</span><br>
+        Address-2: <span style="color: black;">{{customer.Customer_Add2 | uppercase}},{{customer.Customer_Add3}}</span><br>
+        City: <span style="color: black;">{{customer.Customer_City | uppercase}}</span><br>
+        Pin: <span style="color: black;">{{customer.Customer_Pin | uppercase}}</span><br>
+        Mobile: <span style="color: black;">{{customer.Customer_Tel | uppercase}}</span><br>
+        <!-- Email: <span style="color: black;">{{customer.Customer_Email}}</span> -->
+        GST: <span style="color: black;">{{customer.Customer_GST}}</span><br>
+        HSN Code: <span style="color: black;">{{customer.Customer_HSN}}</span>
+      </ion-col>
+
+      <ion-col style="margin-top: 3rem; padding-left: 10px;">
+        <span style="color: black; font-weight: bold;">Invoice No: {{listData.BillNo}}</span><br>
+        <span style="color: black; font-weight: bold;">Date: {{listData.BookDate}}</span>
+      </ion-col>
+    </ion-row>
+
+  <ion-label style="font-size: large; color: black; padding-left: 20px; padding-bottom: 33px;"> &nbsp; <span><hr class="hr1-class"></span></ion-label>
+
+  <ion-row style="margin-top: 10px;" >
+    <ion-col style="font-size: 14px;"><span style="font-weight: 600; color: black;">BILL TO:-</span><br>
+      <span style="font-weight: 600;">{{customer.Customer_name | uppercase}}</span><br>
+        Address-1: <span style="color: black;">{{customer.Customer_Add1 | uppercase}}</span><br>
+        Address-2: <span style="color: black;">{{customer.Customer_Add2 | uppercase}},{{customer.Customer_Add3}}</span><br>
+        City: <span style="color: black;">{{customer.Customer_City | uppercase}}</span><br>
+        Pin: <span style="color: black;">{{customer.Customer_Pin | uppercase}}</span><br>
+        Mobile: <span style="color: black;">{{customer.Customer_Tel | uppercase}}</span><br>
+        <!-- Email: <span style="color: black;">{{customer.Customer_Email}}</span><br> -->
+        GST: <span style="color: black;">{{customer.Customer_GST}}</span><br>
+        <!-- HSN NO: <span style="color: black;">{{customer.Customer_HSN}}</span> -->
+    </ion-col>
+
+    <ion-col style="font-size: 14px;"><span style="font-weight: 600; color: black;">PICK-UP ADDRESS:-</span><br>
+      <span style="font-weight: 600;">{{consignee.con_name | uppercase}}</span><br>
+      Address-1: <span style="color: black;">{{consignee.con_add1 | uppercase}}</span><br>
+      Address-2: <span style="color: black;">{{consignee.con_add2 | uppercase}}</span><br>
+      City: <span style="color: black;">{{consignee.con_add3 | uppercase}}</span><br>
+      Pin: <span style="color: black;">{{consignee.con_pin | uppercase}}</span><br>
+      Mobile: <span style="color: black;">{{consignee.con_Tel | uppercase}}</span><br>
+      <!-- Email: <span style="color: black;">marutiairindore@gmail.com</span> -->
+    </ion-col>
+  </ion-row>
+
+  <ion-label style="font-size: large; color: black; padding-left: 20px; padding-bottom: 33px;"> &nbsp; <span><hr class="hr1-class"></span></ion-label>
+
+  <ion-row >
+    <ion-col style="font-size: 14px;"><span style="font-weight: 600; color: black;">ORDER DETAILS</span><br>
+      <span style="color: black; font-weight: bold;">Order Number:</span>  {{listData.orderNo}}<br>
+      <span style="color: black; font-weight: bold;">3PL AWB Number:</span>    {{listData.Awbno}}<br>
+      <span style="color: black; font-weight: bold;">Order Date:</span>  {{listData.BookDate}}
+    </ion-col>
+  </ion-row>
+  <table style="width:100%">
+    <tr>
+      <th>S.No</th>
+      <th>AWB No</th>
+      <th>Origin</th>
+      <th>Dest</th>
+      <th>Pcs</th>
+      <th>Weight</th>
+      <th>Net Amount</th>
+      <th>Tax Amount</th>
+      <th>Total Amount</th>
+    </tr>
+    <tr style="text-align: center;">
+      <th>1</th>
+      <th>{{listData.Awbno}}</th>
+      <th>{{listData.origin}}</th>
+      <th>{{listData.destination}}</th>
+      <th>{{listData.Qty}}</th>
+      <th>{{listData.ChargedWt}}</th>
+      <th>{{listData.Net_Amount}}</th>
+      <th>{{listData.TotalGST}}</th>
+      <th>{{listData.GrandTotal}}</th>
+    </tr>
+    <!-- <tr style="text-align: center;">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> -->
+  </table>
+  <ion-item style="margin-top: 20px;">
+  <ion-label style="font-size: 8px; font-weight: 700;">THIS IS AN AUTO-GENERATED LABEL AND DOESN'T NEED SIGNATURE.</ion-label>
+    <img src="../../assets/icon/3pl.png" style="width: 100px;">
+  <ion-label  style="font-size: 8px; font-weight: 700; position: absolute; z-index: 101; right: 2rem; top: 20px; color: black;">Powered By:</ion-label>
+</ion-item>
+
+</div>
+</ion-content>
+<ion-footer mode="ios">
+  <ion-toolbar id="toolbar-background" (click)="downloadInvoice()" fill="outline">
+    <ion-title class="toolbar-title">DOWNLOAD PDF</ion-title>
+  </ion-toolbar>
+</ion-footer>

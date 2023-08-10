@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Pick-Up Order Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pick-up" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="border: 1px solid ; padding-top: 20px;">
+    <ion-item lines="none">
+      <ion-label>Status</ion-label>
+        <select style="width: 55vw; margin-left: 43px;" [(ngModel)]="status">
+          <option value="" selected>Select Pickup status</option>
+          <option value="Cancel">Cancel</option>
+          <option value="Confirm">Confirm</option>
+        </select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Status Date</ion-label>
+      <ion-input type="date" style="margin-left: 43px;" [(ngModel)]="statusDate"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Status Time</ion-label>
+      <ion-input type="time" style="margin-left: 40px;" [(ngModel)]="statusTime"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" style="padding-top: 10px;" *ngIf="status ==='Cancel'">
+      <ion-label>Reason</ion-label>
+        <select [(ngModel)]="reason">
+          <option>Select Pickup status</option>
+          <option value="Pickup address not properly">Pickup address not properly.</option>
+          <option value="Delay from the outsider">Delay from the outsider</option>
+        </select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Remark</ion-label>
+      <ion-textarea  rows="4" cols="20" style="margin-left: 72px; border: 1px solid #291670;" [(ngModel)]="remark"></ion-textarea>
+    </ion-item>
+
+  <ion-item>
+    <ion-row style="text-align: center; padding: 20px;">
+      <ion-col><ion-button class="button-native1"  type="submit" (click)="cancel()">Cancel</ion-button></ion-col>
+      <ion-col><ion-button class="button-native"  type="submit" (click)="confirm()">Confirm </ion-button></ion-col>
+    </ion-row>
+  </ion-item>
+
+  </ion-card>
+
+<!-- <ion-card style="border: 1px solid ; padding-top: 20px;">
+  <ng-select  [(ngModel)]="status" style="padding-left: 28px; padding-right: 28px; margin-bottom: 12px;">
+    <ng-option *ngFor="let status of statuses" [value]="status.id" >{{status.name}}</ng-option>
+  </ng-select>
+
+  <ion-item lines="none" style="border: 1px; margin-left: 12px; margin-right: 12px; margin-top: 10px; border-radius: 12px; margin-bottom: 12px;">
+    <ion-input type="date" placeholder="Enter Date"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none" style="border: 1px; margin-left: 12px; margin-right: 12px; margin-top: 10px; border-radius: 12px; margin-bottom: 12px;">
+    <ion-input type="time" placeholder="Enter Time"></ion-input>
+  </ion-item>
+
+  <ng-select  [(ngModel)]="reason" style="padding-left: 28px; padding-right: 28px; margin-bottom: 12px;" *ngIf="status ==='Cancel'">
+    <ng-option *ngFor="let reason of reasons" [value]="reason.id">{{reason.name}}</ng-option>
+  </ng-select>
+
+  <ion-item lines="none" style="border: 1px solid midnightblue; margin-left: 28px; margin-right: 28px; margin-top: 10px; border-radius: 12px; margin-bottom: 12px;">
+    <ion-textarea type="text" cols="5" rows="5" placeholder="Enter Remarks"></ion-textarea>
+  </ion-item>
+
+  <ion-row style="text-align: center; padding: 20px;">
+    <ion-col><ion-button class="button-native1"  type="submit" (click)="cancel()">Cancel</ion-button></ion-col>
+    <ion-col><ion-button class="button-native"  type="submit" (click)="confirm()">Confirm </ion-button></ion-col>
+  </ion-row>
+</ion-card> -->
+</ion-content>

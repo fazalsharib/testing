@@ -1,0 +1,30 @@
+.button-native1{
+  --background: red !important;
+  --border-radius: 20px !important;
+}
+.button-native{
+  --background: green !important;
+  --border-radius: 20px !important;
+}
+
+
+ion-label{
+  padding: 16px;
+}
+ion-input{
+  border: 1px solid darkblue ;
+  padding-left: 16px !important;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 5px;
+}
+h5{
+  color: #DB311B;
+}
+.item-native{
+  border: 1px solid midnightblue;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+}

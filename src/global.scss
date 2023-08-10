@@ -24,3 +24,97 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+.alert-button.sc-ion-alert-md.alert-button-confirm{
+  color: white;
+  background: green !important;
+  width: 6rem;
+}
+.alert-button.sc-ion-alert-md.alert-button-cancel{
+  color: white;
+  background: red !important;
+  width: 6rem;
+}
+.alert-button-group.sc-ion-alert-md{
+  padding-right: 16px;
+}
+.alert-sub-title.sc-ion-alert-md{
+  text-align: center;
+  padding-top: 5px;
+}
+.alert-title.sc-ion-alert-md{
+  font-size: 18px;
+  font-weight: 500;
+  color: orangered;
+  text-align: center;
+}
+.alert-wrapper.sc-ion-alert-md.alertsize{
+  border-radius: 20px;
+  // height: 18rem;
+}
+.alert-input.sc-ion-alert-md{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+textarea.alert-input.sc-ion-alert-md{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.alert-button.sc-ion-alert-md.alertConfirm{
+  color: white;
+  background: green !important;
+  margin-right: 6px;
+  width: 7rem;
+  border-radius: 8px;
+}
+.alert-button.sc-ion-alert-md.alertCancel{
+  color: white;
+  background: red !important;
+  margin-right: 10px;
+  width: 7rem;
+  border-radius: 8px;
+}
+.alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md{
+  border-radius: 12px;
+}
+.alert-button-inner.sc-ion-alert-md{
+  justify-content:center
+}
+.searchbar-search-icon.sc-ion-searchbar-md{
+  color: midnightblue;
+}
+// ion-popover {
+//   --background: rgba(40, 173, 218, 0.6);
+//   --backdrop-opacity: 0.5;
+//   --box-shadow: 0 5px 5px 10 rgba(0, 0, 0, 0.6);
+//   --color: white;
+//   --width: auto;
+//   --justify-content:center
+// }
+// ion-popover::part(backdrop) {
+//   background-color: rgb(6, 14, 106);
+// }
+ion-popover {
+  --background: rgba(40, 173, 218, 0.6);
+  --backdrop-opacity: 0.6;
+  --box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.6);
+  --color: white;
+  --width: 80vw;
+}
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-select.ng-select-single .ng-select-container {
+  border: 1px solid midnightblue !important;
+  border-radius: 10px;
+}
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// ... or
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// @import "~@ng-select/ng-select/themes/material.theme.css";

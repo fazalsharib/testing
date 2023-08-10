@@ -1,0 +1,48 @@
+<ion-content >
+  <form [formGroup]="loginForm" (ngSubmit)="formSubmit(loginForm.value)">
+  <img src="../../../assets/icon/3pl.png" style="padding: 15%; padding-top: 40%;">
+
+  <ion-item style="text-align: center;" lines="none">
+    <ion-input type="text" placeholder="Enter User Name" formControlName="userName" style="border: 1px solid #291670 ; color:#DB311B; border-radius: 10px; margin-top: 32px;margin-left: 48px;margin-right: 48px;"></ion-input>
+  </ion-item>
+  <div *ngFor="let validation of validationMessage.userName">
+    <div class="error-message"
+      *ngIf="loginForm.get('userName').hasError(validation.type) && (loginForm.get('userName').dirty || loginForm.get('userName').touched)">
+      {{ validation.message }}
+    </div>
+  </div>
+
+  <ion-item style="text-align: center;" lines="none">
+    <ion-input type="password" placeholder="Enter Password" formControlName="password" style="border: 1px solid #291670 ; color:#DB311B; border-radius: 10px; margin-top: 32px;margin-left: 48px;margin-right: 48px;"></ion-input>
+  </ion-item>
+  <div *ngFor="let validation of validationMessage.password">
+    <div class="error-message"
+      *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+      {{ validation.message }}
+    </div>
+  </div>
+
+
+  <ion-button class="button-native" expand="block" type="submit" >LOG IN</ion-button>
+
+  <ion-row>
+    <ion-col class=" ion-padding-top ion-text-center">
+      <ion-label class="link-text-color ion-text-center"><span>Forgot password?</span></ion-label>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-row class="ion-padding-top" style="padding-top: 100px;">
+    <ion-col class="ion-text-center">
+      <ion-label><span>Don't have Company code?</span></ion-label>
+    </ion-col>
+  </ion-row> -->
+
+  <ion-row class="ion-padding-top">
+    <ion-col class="ion-text-center">
+      <ion-label><span  (click)="registerHere()" style="font-size: 20px; color: #DB311B;">Register Here!</span></ion-label>
+    </ion-col>
+  </ion-row>
+
+  </form>
+
+</ion-content>

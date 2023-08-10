@@ -1,0 +1,161 @@
+<ion-header style="background: midnightblue;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Rate</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
+
+  <ion-segment value="Rate" [(ngModel)]="type" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="Rate">
+      <ion-label>Enter Rate</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="ModifyRate" >
+      <ion-label>Modify Rate</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="DeleteRate" >
+      <ion-label>Delete Rate</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-card *ngIf="rateType">
+    <ng-select [(ngModel)]="selectedOrigins" placeholder="Select Origin" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px; padding-top: 10px;">
+      <ng-option *ngFor="let origin of origins" [value]="origin.Destination_Code">{{origin.Destination_Name}}&nbsp;({{(origin.Destination_Code)}})</ng-option>
+    </ng-select>
+
+    <ng-select [(ngModel)]="selectedDestinations" placeholder="Select Destination" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
+      <ng-option *ngFor="let destination of destinations" [value]="destination.Destination_Code">{{destination.Destination_Name}}&nbsp;({{(destination.Destination_Code)}})</ng-option>
+    </ng-select>
+
+    <ng-select [(ngModel)]="selectedModes" placeholder="Select Mode Type" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
+      <ng-option *ngFor="let mode of modes" [value]="mode.Mode_Code">{{mode.Mode_Name}}&nbsp;({{(mode.Mode_Code)}})</ng-option>
+    </ng-select>
+
+    <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+      <ion-input [(ngModel)]="selectRate" placeholder="Rate/Kg"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+      <ion-input [(ngModel)]="selectFreightWeight" placeholder="Min Freight Weight"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+      <ion-input [(ngModel)]="selectFreightCharges" placeholder="Min Freight Charges"></ion-input>
+    </ion-item>
+
+    <ng-select [(ngModel)]="selectedTAT" placeholder="Select TAT( In Days )" style="padding-left: 10px; padding-right: 10px; padding-bottom: 0px;">
+      <ng-option *ngFor="let days of tats" [value]="days.days">{{days.days}}</ng-option>
+    </ng-select>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native2" style="margin-top: 10px;margin-bottom: 10px;" >
+          <ion-label>From Date</ion-label>
+          <ion-input [(ngModel)]="activeDate" type="date" placeholder="From Date"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="item-native2" style="margin-bottom: 10px;" >
+          <ion-label>To Date</ion-label>
+          <ion-input type="date" [(ngModel)]="closingDate" placeholder="To Date"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-button class="button-native" expand="full" style="border: 1px solid white; margin-left: 10px; margin-right: 10px; margin-top: 14px; margin-bottom: 10px;" (click)="onSubmit()">submit</ion-button>
+
+ </ion-card>
+
+ <div *ngIf="modifyType" >
+  <ion-card *ngIf="modifyType" >
+    <ng-select [(ngModel)]="selectedModifyOrigins" placeholder="Select Origin" style="padding: 18px;">
+      <ng-option *ngFor="let origin of origins" [value]="origin.Destination_Code">{{origin.Destination_Name}}&nbsp;({{(origin.Destination_Code)}})</ng-option>
+    </ng-select>
+
+    <ng-select [(ngModel)]="selectedModifyDestinations" placeholder="Select Destination" style="padding-left: 18px; padding-right: 18px; padding-bottom: 10px;">
+      <ng-option *ngFor="let destination of destinations" [value]="destination.Destination_Code">{{destination.Destination_Name}}&nbsp;({{(destination.Destination_Code)}})</ng-option>
+    </ng-select>
+
+    <ion-button class="button-native" expand="full" style="border: 1px solid white; margin-left: 20px; margin-right: 16px; margin-top: 10px; margin-bottom: 10px;" (click)="modifySearch()">search</ion-button>
+  </ion-card>
+
+    <ion-card style="background: white;" *ngFor="let item of allRate" (click)="presentPopover(item)" >
+      <ion-row style="background: whitesmoke;">
+        <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600; ">Origin</ion-col>
+        <ion-col style="font-weight: 600; color: black;">{{item.orginname}}</ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">Destination</ion-col>
+        <ion-col style="font-weight: 600; color: black;">{{item.destination_name}}</ion-col>
+      </ion-row>
+      <ion-row style="background: whitesmoke;">
+        <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">Rate / KG</ion-col>
+        <ion-col style="font-weight: 600; color: black;">{{item.rateperkg}}</ion-col>
+      </ion-row>
+      <ion-row style="background: white;">
+        <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">TATs ( In Days )</ion-col>
+        <ion-col style="font-weight: 600; color: black;">{{item.TAT}}</ion-col>
+      </ion-row>
+      <ion-row style="background: whitesmoke;" >
+        <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">Rate Expired date</ion-col>
+        <ion-col style="font-weight: 600; color: black;">{{item.Closing_Date}}</ion-col>
+      </ion-row>
+    </ion-card>
+
+
+   </div>
+
+
+   <div *ngIf="deleteType" >
+    <ion-card  >
+      <ng-select [(ngModel)]="selectedDeletedOrigins" placeholder="Select Origin" style="padding: 18px;">
+        <ng-option *ngFor="let origin of origins" [value]="origin.Destination_Code">{{origin.Destination_Name}}&nbsp;({{(origin.Destination_Code)}})</ng-option>
+      </ng-select>
+
+      <ng-select [(ngModel)]="selectedDeletedDestinations" placeholder="Select Destination" style="padding-left: 18px; padding-right: 18px; padding-bottom: 10px;">
+        <ng-option *ngFor="let destination of destinations" [value]="destination.Destination_Code">{{destination.Destination_Name}}&nbsp;({{(destination.Destination_Code)}})</ng-option>
+      </ng-select>
+
+      <ion-button class="button-native" expand="full" style="border: 1px solid white; margin-left: 20px; margin-right: 16px; margin-top: 10px; margin-bottom: 10px;" (click)="deleteDataSearch()">search</ion-button>
+    </ion-card>
+
+      <ion-card style="background: white;" (click)="removeItem(item)" *ngFor="let item of allRate">
+        <ion-row style="background: whitesmoke;">
+          <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600; ">Origin</ion-col>
+          <ion-col style="font-weight: 600; color: black;">{{item.orginname}}</ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">Destination</ion-col>
+          <ion-col style="font-weight: 600; color: black;">{{item.destination_name}}</ion-col>
+        </ion-row>
+        <ion-row style="background: whitesmoke;">
+          <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">Rate / KG</ion-col>
+          <ion-col style="font-weight: 600; color: black;">{{item.rateperkg}}</ion-col>
+        </ion-row>
+        <ion-row style="background: white;">
+          <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">TATs ( In Days )</ion-col>
+          <ion-col style="font-weight: 600; color: black;">{{item.TAT}}</ion-col>
+        </ion-row>
+        <ion-row style="background: whitesmoke;" >
+          <ion-col style="padding-left: 24px; color: midnightblue; font-size: 16px; font-style: italic; font-weight: 600;">Rate Expired date</ion-col>
+          <ion-col style="font-weight: 600; color: black;">{{item.Closing_Date}}</ion-col>
+        </ion-row>
+      </ion-card>
+     </div>
+
+</ion-content>
+<!-- <div *ngIf="modifyType || deleteType">
+  <ion-footer collapse="fade">
+    <ion-toolbar class="toolbar-container"  style="text-align: center;">Total Count = 10</ion-toolbar>
+  </ion-footer>
+  </div> -->
+<!-- <div *ngIf="deleteType">
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container" (click)="deleteRecord()" style="text-align: center;">Total Count = 01</ion-toolbar>
+</ion-footer>
+</div> -->

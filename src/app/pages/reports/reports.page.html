@@ -1,0 +1,109 @@
+<ion-header style="background: midnightblue;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Reports</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <hr style="color: white; border: 0.1px solid; height: 0px">
+  <h5 class="headerh5">From Date</h5>
+  <ion-item class="item-native" style="padding-left: 20px; padding-right: 16px;">
+    <ion-input type="date" style="background: white; color: black;" [(ngModel)]="fromDate" (ionInput)="searchData($event)" ></ion-input>
+  </ion-item>
+  <h5 class="headerh5">To Date</h5>
+  <ion-item class="item-native" style="padding-left: 20px; padding-right: 16px;">
+    <ion-input type="date" style="background: white; color: black;" [(ngModel)]="toDate" (ionInput)="searchData($event)"></ion-input>
+  </ion-item>
+  <h5 class="headerh5">Status</h5>
+  <ng-select class="ng-select-container" style="padding-left: 20px; padding-right: 14px;" (change)="statusMode1($event)" [(ngModel)]="statusMode">
+    <ng-option *ngFor="let mode of modes" [value]="mode.status1">{{mode.status1}}</ng-option>
+  </ng-select>
+
+  <ion-button class="button-native" expand="full" style="border: 1px solid white; margin-left: 20px; margin-right: 16px; margin-top: 10px; margin-bottom: 10px;" (click)="findByDate()" (click)="findStatusMode()">submit</ion-button>
+</ion-header>
+
+<ion-content>
+  <ion-card  style="border: 2px solid red; border-radius: 20px;" *ngFor="let list of listData">
+    <ion-row >
+      <ion-col>
+          <h5 class="cardh5" style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue; padding-top: 20px;">{{list.Awbno}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5 class="cardh5" >Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue;">{{list.orderno}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5 class="cardh5">Pickup Sheet No</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue;">{{list.PickupsheetNo}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5 class="cardh5">Booking Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue;">{{list.bookdate}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5 class="cardh5">Consignee</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue; ">{{list.consigneeName}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5 class="cardh5">Address</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue;">{{list.address}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5 class="cardh5">Destination</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue; ">{{list.destinationName}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5 class="cardh5">Pincode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue; ">{{list.pincode}} </h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5 class="cardh5">Customer Mobile</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue; ">{{list.phoneNo}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5 class="cardh5">Status</h5>
+      </ion-col>
+      <ion-col>
+          <h5 class="cardh5" style="color: darkblue; ">{{list.status}} </h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

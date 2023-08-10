@@ -1,0 +1,50 @@
+<ion-header style="background: midnightblue;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >#{{pageData?.AWBNo}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="background-content">
+  <ion-card style="font-size: 18px; background:midnightblue; color:white; border-radius: 12px; border: 1px solid deeppink;">
+    <ion-row>
+      <ion-col style="padding-left: 22px; padding-top: 16px;">Status</ion-col>
+      <ion-col ><ion-button class="button-native2">{{pageData?.Status}}</ion-button></ion-col>
+    </ion-row>
+    <hr style="background: deeppink;">
+    <ion-row >
+      <ion-col style="padding-left: 20px; ">Docket No</ion-col>
+      <ion-col>Vendor AWB NO</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding-left: 20px;">{{pageData?.AWBNo}}</ion-col>
+      <ion-col>{{pageData?.VendorAwbno}}</ion-col>
+    </ion-row>
+    <hr style="background: #aa4075;">
+    <ion-row>
+      <ion-col style="padding-left: 20px;">Receiver</ion-col>
+      <ion-col>Destination</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding-left: 20px;">{{pageData?.Consignee}}</ion-col>
+      <ion-col>{{pageData?.Destination}}</ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+  <ion-grid>
+    <ion-row style="text-align: center; background: midnightblue; color: white; height: 60px; padding-top: 15px; border-radius: 12px;">
+      <ion-col>Location</ion-col>
+      <ion-col>Shipment Status</ion-col>
+      <ion-col>Scan Date</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of podData" style="text-align: center; background: whitesmoke; color: black; height: 60px; padding-top: 15px; border-radius: 12px; margin-top: 12px;">
+      <ion-col>{{item.Location}}</ion-col>
+      <ion-col>{{item.Status}}</ion-col>
+      <ion-col>{{item.TimeStamp}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-card>
+  </ion-content>

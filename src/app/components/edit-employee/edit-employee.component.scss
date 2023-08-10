@@ -1,0 +1,25 @@
+.item-native{
+  border: 1px solid midnightblue;
+  border-radius: 10px;
+  background-color: white !important;
+}
+.button-native{
+  --background: #291670 !important;
+}
+.error-message{
+  padding-left: 16px;
+  color: red;
+  font-size: 14px;
+  padding-top: 12px;
+}
+.error-message1 {
+  padding-left: 32px;
+  color: red;
+  font-size: 14px;
+  padding-top: 0px;
+}
+.item-native-edit{
+  --background: midnightblue;
+  --color: white;
+}
+

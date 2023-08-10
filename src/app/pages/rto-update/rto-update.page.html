@@ -1,0 +1,226 @@
+<ion-content>
+  <ion-card>
+    <p style="border-bottom: 1px solid orange;padding-left: 16px;background: #DB311B;font-size: 18px; margin-top: 0px; color: white;">C.Note Return Details</p>
+
+    <span>AWB Number</span>
+      <ion-item lines="none" class="ion-margin item-native" >
+        <ion-input type="text" disabled="true" [value]="listData.AWBNumber"></ion-input>
+      </ion-item>
+
+    <span>Reason</span>
+      <ng-select style="padding-left: 16px; padding-right: 16px" [(ngModel)]="selectedReason">
+        <ng-option *ngFor="let reason of reasons" [value]="reason.Reason">{{reason.Reason}}</ng-option>
+      </ng-select>
+
+    <span>Status</span>
+      <ng-select style="padding-left: 16px; padding-right: 16px" [(ngModel)]="selectedStatus">
+        <ng-option *ngFor="let status of statuses" [value]="status.id">{{status.name}}</ng-option>
+      </ng-select>
+
+    <span class="span1">Date</span>
+      <ion-item lines="none" class="ion-margin item-native" >
+        <ion-input type="date" [(ngModel)]="date" ></ion-input>
+      </ion-item>
+
+    <span>Upload Proof</span>
+      <ion-item lines="none" class="ion-margin item-native" >
+        <ion-input type="file" [(ngModel)]="uploadProof"></ion-input>
+      </ion-item>
+
+  </ion-card>
+
+  <!-- <ion-card>
+    <p style="border-bottom: 1px solid orange;padding-left: 16px;background: #DB311B;font-size: 18px; margin-top: 0px; color: white;">C.Note Details</p>
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px;">{{listData.AWBNumber}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">Consignee</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px;">{{listData.AWBNumber}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Reference No.</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;" disabled="true" [value]="params.ConsigneeContact">{{listData.BookDate}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Client Type</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">Credit</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Mode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; "> Surface</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Origin</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">Mumbra</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Destination</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">Thane</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Actual Weight</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">0 </h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Vol-Weight</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">0 </h5>
+      </ion-col>
+    </ion-row>
+  </ion-card> -->
+
+
+  <ion-card >
+    <p style="border-bottom: 1px solid orange;padding-left: 16px;background: #DB311B;font-size: 18px; margin-top: 0px; color: white;">C.Note Details</p>
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px;">{{listData.AWBNumber}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5 >Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.BookDate}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.Customer}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Consignee</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Consignee}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Mode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.Mode}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking From</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.FromLocation}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Destination</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ToLocation}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col >
+          <h5>Quantity</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Qty}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Weight</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Weight}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col >
+          <h5>Consignee Pincode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ConsigneePINCode}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col >
+          <h5>Consignee Contact</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ConsigneeContact}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer collapse="fade">
+    <ion-row style="text-align: center; padding:10px">
+      <ion-col style="border-right: 1px solid;">
+        <ion-button class="button-native" (click)="confirm()">SAVE</ion-button>
+        <ion-button class="button-native1" (click)="cancel()">RESET</ion-button>
+      </ion-col>
+    </ion-row>
+</ion-footer>
+
+

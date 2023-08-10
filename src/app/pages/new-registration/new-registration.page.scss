@@ -1,0 +1,31 @@
+.toolbar-background{
+  --background: #291670;
+}
+.item-native{
+  border: 1px solid midnightblue;
+  border-radius: 10px;
+  background-color: white !important;
+  // color: ;
+}
+
+ion-label{
+  padding: 16px;
+}
+.button-native{
+  --background: #291670 !important;
+}
+.error-message{
+    padding-left: 16px;
+    color: #291670;
+    font-size: 14px;
+    padding-top: 12px;
+}
+.error-message1 {
+    padding-left: 32px;
+    color: #291670;
+    font-size: 14px;
+    padding-top: 0px;
+}
+
+
+

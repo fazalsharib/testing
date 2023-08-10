@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white; font-style: italic; font-weight: bold; font-size: 16px;" >Label-Print</ion-title>
+    <ion-buttons slot="start" style="color: white;">
+      <ion-back-button defaultHref="e-wallet"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="PrintInvoice" class="invoice-box" style="max-width: 800px;margin: auto; padding: 10px;border: 1px solid #eee;box-shadow: 0 0 10px rgba(0, 0, 0, .15);font-size: 16px;line-height: 24px;font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;color: #555;">
+    <div style="border: 1px solid black;">
+        <ion-row>
+          <ion-col style="border: 1px solid black;">
+            <img src="{{companyLogo}}">
+          </ion-col>
+          <ion-col style="border: 1px solid black;">
+            <img src="{{listData.VendorLogo}}" style="height: 95px; width: 182px;">
+          </ion-col>
+        </ion-row>
+
+        <div style="border: 1px solid black;">
+          <ion-label style="padding-left: 10px; font-weight: 700;">Booking Date# :</ion-label>
+          <ion-label style="padding-left: 10px; font-weight: 700; ">{{listData.BookDate}}</ion-label>
+          <br>
+            <ion-label style="padding-left: 10px; font-weight: 700;">3PL AWB NO # :</ion-label>
+            <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 20px;">{{listData.Awbno}}</ion-label>
+          <br>
+            <ion-label style="padding-left: 10px; font-weight: 700;">NO of Pcs # :</ion-label>
+            <ion-label style="padding-left: 34px; font-weight: 700; color: black; font-size: 20px;">{{listData.Qty}}</ion-label>
+          <br>
+          <div style="text-align: center;">
+            <svg #barcode id="barcode"></svg>
+          </div>
+        </div>
+
+        <!-- <div style="border: 1px solid black;">
+          <h5 style="padding-left: 10px; font-weight: 700;">Ship To :</h5>
+        <br> -->
+        <!-- <ion-row style="border-bottom: 1px solid black;" > -->
+          <!-- <ion-col style="font-size: 12px; ">
+            <div style="padding-left: 16px;">
+              <p style="font-weight: 600; color: black;">Receiver Name:-&nbsp;
+                <span style="font-weight: 600; color: black;">{{consignee.con_name | uppercase}}</span></p><br>
+                <p style="font-weight: 600; color: black; margin-top: -44px;">Address:-&nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{consignee.con_add1 | uppercase}}</span></p>
+                <p style="font-weight: 600; color: black; margin-top: -22px;">Near: &nbsp;
+                  <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{consignee.con_add2 | uppercase}}</span></p>
+                <p style="font-weight: 600; color: black; margin-top: -22px;">City: &nbsp;
+                  <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{consignee.con_add3 | uppercase}}</span></p>
+                <p style="font-weight: 600; color: black; margin-top: -22px;">State: &nbsp;
+                  <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{consignee.con_State | uppercase}}</span></p>
+                <p style="font-weight: 600; color: black; margin-top: -22px;">Pin: &nbsp;
+                  <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{consignee.con_pin | uppercase}}</span></p>
+                <p style="font-weight: 600; color: black; margin-top: -22px;">Mob No: &nbsp;
+                  <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{consignee.con_Tel | uppercase}}</span></p>
+                <p style="font-weight: 600; color: black; margin-top: -22px;">Email: &nbsp;
+                  <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">fazal1@gmail.com</span></p>
+              </div>
+          </ion-col> -->
+       <!-- </div> -->
+
+       <!-- <div style="border: 1px solid black;">
+        <ion-row style="border-bottom: 1px solid black;" >
+          <ion-col style="border-right: 1px solid black; padding-left: 16px;">
+            <span style="font-weight: 600; color: black;">Ship To :</span><br>
+            <span style="font-weight: 600;">{{consignee.con_name | uppercase}}</span><br>
+              Address-1: <span style="color: black;">{{consignee.con_add1 | uppercase}}</span><br>
+              Address-2: <span style="color: black;">{{consignee.con_add2 | uppercase}}</span><br>
+              City: <span style="color: black;">{{consignee.con_add3 | uppercase}}</span><br>
+              Pin: <span style="color: black;">{{consignee.con_pin}}</span><br>
+              State: <span style="color: black;">{{consignee.con_State}}</span><br>
+              Mobile: <span style="color: black;">{{consignee.con_Tel}}</span><br>
+              Email: <span style="color: black;">{{consignee.con_Email}}</span><br>
+          </ion-col>
+        </ion-row>
+       </div> -->
+
+       <div style="border: 1px solid black;">
+        <ion-label style="padding-left: 10px; font-weight: 700;color: black; font-size: 18px;  ">Ship To :</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Name :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_name | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Address-1 :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_add1 | uppercase }}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Address-2 :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_add2 | uppercase }}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">City :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_add3 | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Pin :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_pin | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">State :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_State | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Mobile No :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_Tel}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Email :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{consignee.con_Email}}</ion-label>
+        <br>
+      </div>
+
+       <div style="border: 1px solid black;">
+        <ion-label style="padding-left: 10px; font-weight: 700;color: black; font-size: 18px;  ">Pickup Address :</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Name :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_name | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Address-1 :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_Add1 | uppercase }}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Address-2 :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_Add2 | uppercase }}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">City :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_City | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Pin :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_Pin | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">State :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_State | uppercase}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Mobile No :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_Tel}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Email :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_Email}}</ion-label>
+        <br>
+        <ion-label style="padding-left: 10px; font-weight: 700; ">GST :</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 14px; ">{{shipper.Shipper_GST | uppercase}}</ion-label>
+      </div>
+
+        <!-- <div style="border: 1px solid black;">
+        <h5 style="padding-left: 10px; font-weight: 700;">Pickup Address :</h5>
+        <br>
+        <ion-row style="margin-top: -40px; border-bottom: 1px solid black;">
+          <ion-col  style="font-size: 12px;">
+            <div style="padding-left: 16px;">
+              <p style="font-weight: 600; color: black;">Shipper Name:-&nbsp;
+               <span style="font-weight: 600; color: black;">{{shipper.Shipper_name | uppercase}}</span></p><br>
+              <p style="font-weight: 600; color: black; margin-top: -44px;">Address:-&nbsp;
+              <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_Add1 | uppercase }}</span></p>
+              <p style="font-weight: 600; color: black; margin-top: -22px;">Near: &nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_Add2 | uppercase }}</span></p>
+              <p style="font-weight: 600; color: black; margin-top: -22px;">City: &nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_Add2 | uppercase }}</span></p>
+              <p style="font-weight: 600; color: black; margin-top: -22px;">State: &nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_State | uppercase }}</span></p>
+              <p style="font-weight: 600; color: black; margin-top: -22px;">Pin: &nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_Pin | uppercase }}</span></p>
+              <p style="font-weight: 600; color: black; margin-top: -22px;">Mob No: &nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_Tel | uppercase }}</span></p>
+              <p style="font-weight: 600; color: black; margin-top: -22px;">GST: &nbsp;
+                <span style="font-size: 12px; margin-top: -42px; font-weight: 400;">{{shipper.Shipper_GST | uppercase }}</span></p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div> -->
+
+      <div style="border: 1px solid black;">
+        <ion-label style="padding-left: 10px; font-weight: 700; ">Customer Order NO #:</ion-label>
+        <ion-label style="padding-left: 10px; font-weight: 700; color: black; font-size: 20px; ">{{listData.orderNo}}</ion-label>
+        <br>
+        <div style="text-align: center;">
+          <svg #barcodeOrder id="barcodeOrder"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer mode="ios">
+  <ion-toolbar id="toolbar-background" (click)="downloadInvoice()">
+    <ion-title class="toolbar-title">Print</ion-title>
+  </ion-toolbar>
+</ion-footer>

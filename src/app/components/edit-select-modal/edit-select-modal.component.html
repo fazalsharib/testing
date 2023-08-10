@@ -1,0 +1,21 @@
+<ion-content class="ion-padding">
+  <!-- <ion-card> -->
+    <ion-item lines="none">
+      <h5>Pickup Boy</h5>
+    </ion-item>
+    <ion-select placeholder="Select Pickup Boy" (ionChange)="pickupBoyValue($event)" style="border: 1px solid midnightblue;margin-left: 10px; margin-right: 10px; border-radius: 16px;">
+      <ion-select-option value="">Select Pickup Boy</ion-select-option>
+      <ion-select-option *ngFor="let item of pickupBoyList"  [value]="item.PickupBoyCode">{{item.PickupName}}</ion-select-option>
+    </ion-select>
+    <ion-item lines="none">
+      <h5>Remarks</h5>
+    </ion-item>
+    <ion-item lines="none" class="item-native">
+      <ion-textarea type="text" rows="6" cols="10"  [(ngModel)]="remarks" style="margin: 0px;"></ion-textarea>
+    </ion-item>
+
+    <ion-button class="button-native1" expand="full" (click)="cancel()">CANCEL</ion-button>
+    <ion-button class="button-native" expand="full" (click)="confirm()">GENERATE</ion-button>
+  <!-- </ion-card> -->
+</ion-content>
+

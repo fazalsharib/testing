@@ -1,0 +1,69 @@
+<ion-header style="border-bottom: 1px solid white;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Add Employee..!!</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="employee" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar style="background-color: #291670;" placeholder="Track Here......!"></ion-searchbar>
+</ion-header>
+
+<ion-content id="background-content">
+  <form [formGroup]="registerForm" (ngSubmit)="formSubmit(registerForm.value)">
+  <ion-card style="background: whitesmoke; border: 1px solid lawngreen; border-radius: 12px;">
+
+    <ion-item lines="none" class="ion-margin item-native">
+      <ion-input type="text" placeholder="Employee Name" formControlName="employeeName"></ion-input>
+    </ion-item>
+    <div *ngFor="let validation of validationMessage.employeeName">
+      <div class="error-message1"
+        *ngIf="registerForm.get('employeeName').hasError(validation.type) && (registerForm.get('employeeName').dirty || registerForm.get('employeeName').touched)">
+        {{ validation.message }}
+      </div>
+    </div>
+
+    <ion-item lines="none" class="ion-margin item-native">
+      <ion-input type="number" placeholder="Employee Mobile Number" formControlName="mobileNo"></ion-input>
+    </ion-item>
+    <div *ngFor="let validation of validationMessage.mobileNo">
+      <div class="error-message1"
+        *ngIf="registerForm.get('mobileNo').hasError(validation.type) && (registerForm.get('mobileNo').dirty || registerForm.get('mobileNo').touched)">
+        {{ validation.message }}
+      </div>
+    </div>
+
+    <ng-select formControlName="locationName"  placeholder="Select your Location" style="padding-left: 16px; padding-right: 16px; color: #DB311B;">
+      <ng-option *ngFor="let city of locations" [value]="city.Destination_Code">{{city.Destination_Name}}&nbsp;({{(city.Destination_Code)}})</ng-option>
+    </ng-select>
+    <div *ngFor="let validation of validationMessage.locationName">
+      <div class="error-message1"
+        *ngIf="registerForm.get('locationName').hasError(validation.type) && (registerForm.get('locationName').dirty || registerForm.get('locationName').touched)">
+        {{ validation.message }}
+      </div>
+    </div>
+
+    <ion-item lines="none" class="ion-margin item-native" style="margin-top: 0px;">
+      <ion-input type="text" placeholder="User Name" formControlName="userName"></ion-input>
+    </ion-item>
+    <div *ngFor="let validation of validationMessage.userName">
+      <div class="error-message1"
+        *ngIf="registerForm.get('userName').hasError(validation.type) && (registerForm.get('userName').dirty || registerForm.get('userName').touched)">
+        {{ validation.message }}
+      </div>
+    </div>
+
+    <ion-item lines="none" class="ion-margin item-native">
+      <ion-input type="password" placeholder="Your Password" formControlName="password"></ion-input>
+    </ion-item>
+    <div *ngFor="let validation of validationMessage.password">
+      <div class="error-message1"
+        *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+        {{ validation.message }}
+      </div>
+    </div>
+
+    <ion-button class="button-native" type="submit" style="margin:16px;"  expand="block">SUBMIT</ion-button>
+
+  </ion-card>
+</form>
+</ion-content>

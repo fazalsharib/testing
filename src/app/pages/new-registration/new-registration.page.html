@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Register Here!</ion-title>
+    <ion-buttons slot="start" style="color: white;">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="formSubmit(registerForm.value)">
+  <ion-card style=" margin: 10px; margin-bottom: 0px; background-color: whitesmoke;">
+    <ion-item lines="none" class="item-native" (click)="getImage('Profile')" style="margin-left: 20px; margin-right: 20px; margin-top: 16px; margin-bottom: 16px;" >
+      <ion-label style=" padding: 0px;" for="contact-upld-file" class="uploadAtttachment" *ngIf="!companyLogo" >Upload Your Company Logo</ion-label>
+      <ion-icon *ngIf="!companyLogo" name="cloud-upload" ></ion-icon>
+      <!-- <img *ngIf="profilePic" [src]="profilePic" height="40" width="40"> -->
+      <img *ngIf="companyLogo" [src]="companyLogo" style="height: 90%; width: 100%; border-radius: 20px;">
+    </ion-item>
+    <!-- <img *ngIf="profilePic" [src]="profilePic" style="height: 50%; width: 50%;margin: 20px; padding: 12px; margin-left: 100px; border: 1px solid #291670;border-radius: 20px; "> -->
+  </ion-card>
+
+  <!-- <img *ngIf="companyLogo" [src]="companyLogo" style="height: 40%; width: 100%; margin-top: -225px; border-radius: 20px;"> -->
+  <ion-card style="background-color: whitesmoke;">
+
+      <ion-item lines="none" class=" ion-margin item-native" >
+        <ion-input  type="text" placeholder="Company Name" formControlName="companyName"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.companyName">
+        <div class="error-message1"
+          *ngIf="registerForm.get('companyName').hasError(validation.type) && (registerForm.get('companyName').dirty || registerForm.get('companyName').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="text" placeholder="GST Number" formControlName="gstNumber" ></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.gstNumber">
+        <div class="error-message1"
+          *ngIf="registerForm.get('gstNumber').hasError(validation.type) && (registerForm.get('gstNumber').dirty || registerForm.get('gstNumber').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="text" placeholder="GST in %" formControlName="gstPercentage" ></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.gstPercentage">
+        <div class="error-message1"
+          *ngIf="registerForm.get('gstPercentage').hasError(validation.type) && (registerForm.get('gstPercentage').dirty || registerForm.get('gstPercentage').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="Number" placeholder="Contact Number" formControlName="contactNumber"  ></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.contactNumber">
+        <div class="error-message1"
+          *ngIf="registerForm.get('contactNumber').hasError(validation.type) && (registerForm.get('contactNumber').dirty || registerForm.get('contactNumber').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="email" placeholder="Your Email-ID" formControlName="emilId" ></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.emilId">
+        <div class="error-message1"
+          *ngIf="registerForm.get('emilId').hasError(validation.type) && (registerForm.get('emilId').dirty || registerForm.get('emilId').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="text" placeholder="Address 1" formControlName="address1"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.address1">
+        <div class="error-message1"
+          *ngIf="registerForm.get('address1').hasError(validation.type) && (registerForm.get('address1').dirty || registerForm.get('address1').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="text" placeholder="Address 2" formControlName="address2"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.address2">
+        <div class="error-message1"
+          *ngIf="registerForm.get('address2').hasError(validation.type) && (registerForm.get('address2').dirty || registerForm.get('address2').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="text" placeholder="Landmark" formControlName="landmark"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.landmark">
+        <div class="error-message1"
+          *ngIf="registerForm.get('landmark').hasError(validation.type) && (registerForm.get('landmark').dirty || registerForm.get('landmark').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="tel" placeholder="Pincode" formControlName="pincode" (ionChange)="getpincode($event)"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.pincode">
+        <div class="error-message1"
+          *ngIf="registerForm.get('pincode').hasError(validation.type) && (registerForm.get('pincode').dirty || registerForm.get('pincode').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ng-select formControlName="cityName" placeholder="Select City Name" style="padding-left: 16px; padding-right: 16px; color: #DB311B;">
+        <ng-option *ngFor="let city of cities" [value]="city.Destination_Code">{{city.Destination_Name}}&nbsp;({{(city.Destination_Code)}})</ng-option>
+      </ng-select>
+      <div *ngFor="let validation of validationMessage.cityName">
+        <div class="error-message1"
+          *ngIf="registerForm.get('cityName').hasError(validation.type) && (registerForm.get('cityName').dirty || registerForm.get('cityName').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ng-select formControlName="stateName" placeholder="Select State Name" style="padding-left: 16px; padding-right: 16px; color: #DB311B;">
+        <ng-option *ngFor="let state of states" [value]="state.State_Code">{{state.State_Name}}&nbsp;({{(state.State_Code)}})</ng-option>
+      </ng-select>
+      <div *ngFor="let validation of validationMessage.stateName">
+        <div class="error-message1"
+          *ngIf="registerForm.get('stateName').hasError(validation.type) && (registerForm.get('stateName').dirty || registerForm.get('stateName').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ng-select formControlName="countryName" placeholder="Select Country Name" style="padding-left: 16px; padding-right: 16px; color: #DB311B;">
+        <ng-option *ngFor="let country of countries" [value]="country.countryCode">{{country.countryName}}&nbsp;({{(country.countryCode)}})</ng-option>
+      </ng-select>
+      <div *ngFor="let validation of validationMessage.countryName">
+        <div class="error-message1"
+          *ngIf="registerForm.get('countryName').hasError(validation.type) && (registerForm.get('countryName').dirty || registerForm.get('countryName').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native" style="margin-top: 0px;">
+        <ion-input type="text" placeholder="User Name" formControlName="userName"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.userName">
+        <div class="error-message1"
+          *ngIf="registerForm.get('userName').hasError(validation.type) && (registerForm.get('userName').dirty || registerForm.get('userName').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native">
+        <ion-input type="{{showPassword ? 'text' : 'password'}}" placeholder="Your Password" formControlName="password" style="color: #DB311B; "></ion-input>
+        <ion-icon slot="end" name="{{showPassword ? 'eye-off' : 'eye'}}" (click)="toggleShow()"></ion-icon>
+        <!-- <ion-input type="password" placeholder="Your Password" formControlName="password"  style="color: #DB311B; "></ion-input> -->
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.password">
+        <div class="error-message1"
+          *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <ion-item lines="none" class="ion-margin item-native" style="margin-top: 0px;">
+        <ion-input type="number" placeholder="Start Invoice No" formControlName="invoiceNo"></ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validationMessage.invoiceNo">
+        <div class="error-message1"
+          *ngIf="registerForm.get('invoiceNo').hasError(validation.type) && (registerForm.get('invoiceNo').dirty || registerForm.get('invoiceNo').touched)">
+          {{ validation.message }}
+        </div>
+      </div>
+
+      <div>
+        <ion-checkbox type="checkbox" style="margin-top: 10px; margin-left: 30px;" (click)="agree()" (click)="presentPopover()"></ion-checkbox>
+        <p style=" position: relative; top: -26px; left: 60px; margin-bottom: -40px; color: #808080;">
+          <span style="font-size: 16px; color: #DB311B;"> I Agree and Read <a href="http://neotechnet.com/" style="color: #291670; font-size:16px">Terms & Conditions</a></span>
+        </p>
+      </div>
+
+      <ion-button class="button-native" type="submit" style="margin:30px;"  expand="block" [disabled]="isenabled">REGISTER</ion-button>
+      <ion-button class="button-native" style="margin:30px;"  expand="block">RESET</ion-button>
+
+     </ion-card>
+    </form>
+  </ion-content>

@@ -1,0 +1,374 @@
+<ion-header style="background: midnightblue;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Other Rate Charges</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card style="background:whitesmoke;">
+
+    <ion-item lines="none" class="item-native2" style="margin-bottom: 10px;" >
+      <ion-input type="number" [(ngModel)]="awbCharges" placeholder="AWB Charges"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="item-native2" style="margin-bottom: 10px;" >
+      <ion-input type="number" [(ngModel)]="fuelCharges" placeholder="Fuel Charges"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item lines="none" class="item-native2" style="margin-bottom: 10px;" >
+      <ion-input type="number" [(ngModel)]="minFreight" placeholder="Min Freight Weight"></ion-input>
+    </ion-item> -->
+
+    <!-- <ion-item lines="none" class="item-native2" style="margin-bottom: 10px;" >
+      <ion-input type="number" [(ngModel)]="insuranceCharges" placeholder="Transit Insurance Charges in %"></ion-input>
+    </ion-item> -->
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="insuranceCharges" placeholder="Min Tran.Inc Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minTICharges" placeholder="Invoice value in %"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="fovCharges" placeholder="Min FOV Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minFovCharges" placeholder="Invoice value in %"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="cofCharges" placeholder="Min COF Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minCofCharges" placeholder="Invoice value in %"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="odaCharges" placeholder="Min ODA Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minOdaCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="pickupCharges" placeholder="Min Pickup Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minPickupCharges" placeholder="Freight / Kg "></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="deliveryCharges" placeholder="Min Delivery Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minDeliveryCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="loadingCharges" placeholder="Min Loading Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minLoadingCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="unloadingCharges" placeholder="Min Unloading Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minUnloadingCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="codCharges" placeholder="Min COD Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minCodCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="fodCharges" placeholder="Min FOD Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minFodCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="handlingCharges" placeholder="Min Handling Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minHandlingCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="packingCharges" placeholder="MinPacking Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minPackingCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="wareHousingCharge" placeholder="Min Ware-Housing Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minWareHousingCharges" placeholder="Rs./ Day"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="demurrageCharges" placeholder="Min Demurrage Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minDemurrageCharges" placeholder="Rs./ Day"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="shipmentCharges" placeholder="Min Shipment Holding Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minShipmentCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="mallDeliveryCharges" placeholder="Min Mall Delivery Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minMallDeliveryCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="timeCharges" placeholder="Min Time Specific Delivery Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minTimeCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="appointmentDelivery" placeholder="Min Appointment Delivery Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minAppointmentDelivery" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="specialDeliveryCharges" placeholder="Min Special Delivery Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minSpecialDeliveryCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="orderCancel" placeholder="Min Order Cancel Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minOrderCancel" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="addressCorrection" placeholder="Min Address Correction Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minAddressCorrection" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="reattemptDelivery" placeholder="Min Re-attempt Delivery Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minReattemptDelivery" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="ndtCharges" placeholder="Min NDT Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minNdtCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="unionCharges" placeholder="Min Union Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minUnionCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="othersCharges" placeholder="Min Others Chrg"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-input type="number" [(ngModel)]="minOthersCharges" placeholder="Freight / Kg"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-label>From Date</ion-label>
+          <ion-input type="date" placeholder="From Date"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none" class="item-native1" style="margin-bottom: 10px;" >
+          <ion-label>To Date</ion-label>
+          <ion-input type="date" placeholder="To Date"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-button class="button-native" expand="full" style="border: 1px solid white; margin-left: 10px; margin-right: 10px; margin-top: 14px; margin-bottom: 10px;" (click)="onSubmit()">submit</ion-button>
+
+
+  </ion-card>
+</ion-content>

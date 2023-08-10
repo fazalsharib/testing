@@ -1,0 +1,147 @@
+<ion-header style="background: midnightblue;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Find & Delete Pickup</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pickup-order" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-row style="padding-bottom: 10px;">
+    <ion-col style="padding-top: 0px; padding-left: 12px;" size="9">
+      <ion-input type="text" style="border: 1px solid white; background: white; color: black; margin-left: 3px; padding-left: 46px !important;" placeholder="Enter Pickup-sheet No" [(ngModel)]="pickupSheetNo"></ion-input>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button class="button-native"  style="height: 42px; border: 1px solid white; z-index: 101; position: absolute; top: -4px; right: 6px; width: 23vw;" (click)="findBypickupSheetNo()">FIND PS No</ion-button>
+      </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="padding-top: 0px;">
+      <ion-icon name="search-outline" style="z-index: 101; position: absolute; top: -44px; left: 32px; color: midnightblue;"></ion-icon>
+      <ion-searchbar style="background-color: #291670; padding-left: 10px; padding-right: 100px;" [(ngModel)]="selectedname" placeholder="Select Pickup Boy" (click)="openSearch()"></ion-searchbar>
+      <ion-button class="button-native"  style="height: 42px; border: 1px solid white; z-index: 101; position: absolute; top: 4px; right: 6px; width: 23vw; " (click)="findPickupBoyList($event)">FIND BOY</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="padding-top: 0px;">
+      <ion-searchbar type="date" style="background-color: #291670; padding-left: 10px; padding-right: 100px;" placeholder="Search By Date ....!" (ionInput)="searchData($event)" ></ion-searchbar>
+      <ion-button class="button-native"  style="height: 44px; border: 1px solid white; z-index: 101; position: absolute; top: 4px; right: 6px; width: 23vw;" (click)="findByDate()">FIND DATE</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+<ion-content scroll-y="true" id="background-content" style="background-color: #DB311B !important;">
+  <div>
+    <ion-card style="border: 1px solid red; border-radius: 20px;" *ngFor="let listData of listData2 ; index as i;"
+    [ngClass]="{ 'use-pink-background': currentSelected[i]}"
+    (click)="handleClick(i, listData.OrderNo)">
+      <ion-row >
+        <ion-col>
+            <h5 style="padding-top: 20px;">AWB Number</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; padding-top: 20px;">{{listData.AwbNo}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+            <h5>Order Number</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue;">{{listData.OrderNo}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Booking Date</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue;">{{listData.Bookdate}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Pickup Generate Date</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue;">{{listData.Pickup_Generate_Date}}</h5>
+        </ion-col>
+      </ion-row>
+
+      <ion-row >
+        <ion-col>
+            <h5>Customer</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue;">{{listData.Shipper_Name}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Consignee</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; "> {{listData.Shipper_Name}}</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+            <h5>Mode</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue;">Active</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Booking From</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">Mumbra</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+            <h5>Destination</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">Thane</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Quantity</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">20 </h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Actual Weight</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">50 Kg </h5>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col >
+            <h5>Customer Mobile</h5>
+        </ion-col>
+        <ion-col>
+            <h5 style="color: darkblue; ">{{listData.Customer_Tel}}</h5>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container" (click)="deleteRecord()">
+    <ion-row style="text-align: center; font-size: 14px;">
+      <ion-col style="border-right: 1px solid;">DELETE</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

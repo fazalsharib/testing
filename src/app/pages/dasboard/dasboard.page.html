@@ -1,0 +1,201 @@
+<!-- <ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >{{userInfo?.Vendor_Name}}</ion-title>
+    <ion-icon name="notifications-outline" slot="end" style="color:white; padding-right: 12px; font-size: 22px;"></ion-icon>
+    <ion-avatar slot="end" style="background-color: white; height: 40px; width: 40px;margin-right: 10px;border: 1px solid #DB311B;">
+      <img src="../../../assets/icon/user.png">
+    </ion-avatar>
+      <ion-buttons slot="start" style="color: white;">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar style="background-color: #291670;" placeholder="Track Here......!"></ion-searchbar>
+</ion-header>
+
+<ion-content scroll-y="true">
+    <ion-row>
+      <ion-col style="margin: -10px; margin-top: 0px; margin-left: -5px;">
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="goToPickuppage()">
+          <img src="../../../assets/icon/delivery-man (1).png" style="height: 80px; margin-left: 50px; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label>Pickup</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="goToPodpage()" >
+          <img src="../../../assets/icon/POD.png" style="height: 80px; margin-left: 50px; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label>POD Update</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;"  (click)="openReports()">
+          <img src="../../../assets/icon/Report.png" style="height: 80px; margin-left: 50px; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label>Reports</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col style="margin: -10px; margin-top: 0px; margin-left: -12px; margin-right: -2px;">
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="gotoPickupOrder()" >
+          <img src="../../../assets/icon/RTO.png" style="height: 80px; margin-left: 50px; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label>Pickup Orders</ion-label>
+          </ion-item>
+        </ion-card>
+
+
+
+
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="goToRtopage()" >
+          <img src="../../../assets/icon/Return_48px.png" style="height: 80px; margin-left: 50px; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label>RTO</ion-label>
+          </ion-item>
+        </ion-card>
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;"  (click)="openPrints()">
+          <img src="../../../assets/icon/Print_50px.png" style="height: 80px; margin-left: 50px; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label>Print</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-card style="padding-bottom: 20px; border: 1px solid midnightblue; border-radius: 10px; margin:14px;">
+    <ion-row >
+      <ion-col >
+        <h5 style="text-align: center;">Intransit</h5>
+        <ion-input type="number"  value="30" disabled="true" style="font-weight: bolder;color: orange;"></ion-input>
+      </ion-col>
+      <ion-col>
+        <h5 style="text-align: center;">Delivered</h5>
+        <ion-input type="number"  value="20" disabled="true" style="font-weight: bolder;color: orange;"></ion-input>
+      </ion-col>
+      <ion-col>
+        <h5 style="text-align: center;">Pending</h5>
+        <ion-input type="number" value="10" disabled="true" style="font-weight: bolder;color: orange;"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container">
+    <ion-row style="text-align: center; font-size: 14px;">
+      <ion-col style="border-right: 1px solid;" ><ion-icon name="home"></ion-icon>&nbsp; &nbsp;Home</ion-col>
+      <ion-col style="border-right: 1px solid;" (click)="presentPopover()"><ion-icon name="locate"></ion-icon>&nbsp; &nbsp;Service Locator</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+ -->
+
+
+ <ion-header class="header">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >{{userInfo?.Vendor_Name}}</ion-title>
+    <ion-icon name="notifications-outline" slot="end" style="color:white; padding-right: 12px; font-size: 22px;"></ion-icon>
+    <ion-avatar slot="end" style="background-color: white; height: 40px; width: 40px;margin-right: 10px;border: 1px solid #DB311B;">
+      <img src="{{userInfo?.Logo}}">
+    </ion-avatar>
+      <ion-buttons slot="start" style="color: white;">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar [(ngModel)]="docketNo" placeholder="Enter AWB Number." style="padding-left: 40px; padding-right: 40px; padding-top: 28px;"></ion-searchbar>
+  <ion-button class="button-native" style="position: absolute; right: 39px; bottom: 31.5px; height: 40px;" (click)="findDocketNo()">Search</ion-button>
+  <!-- <ion-searchbar style="background-color: #291670;" placeholder="Track Here......!"></ion-searchbar> -->
+</ion-header>
+
+
+<ion-content scroll-y="true">
+    <ion-row>
+      <ion-col style="margin: -10px; margin-top: 0px; margin-left: -5px;">
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="goToPickuppage()">
+          <img src="../../../assets/icon/image (4).png" style="height: 80px; margin-left: 34%; margin-top: 20px; font-weight: 800;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">Pickup</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="goToPodpage()" *ngIf="userType > 0">
+          <img src="../../../assets/icon/image (2).png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">POD Update</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" *ngIf="userType > 0" (click)="openReports()">
+          <img src="../../../assets/icon/image (1).png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">Reports</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" *ngIf="userType > 0" (click)="openRates()">
+          <img src="../../../assets/icon/getrate.png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">Rate</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col style="margin: -10px; margin-top: 0px; margin-left: -12px; margin-right: -2px;">
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="gotoPickupOrder()" *ngIf="userType > 0">
+          <img src="../../../assets/icon/image (7).png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">Pickup Orders</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="goToRtopage()" *ngIf="userType > 0">
+          <img src="../../../assets/icon/image (8).png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">RTO</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" *ngIf="userType > 0" (click)="openWallet()">
+          <img src="../../../assets/icon/image (5).png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">E-Wallet</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" *ngIf="userType > 0" (click)="openOtherChanges()">
+          <img src="../../../assets/icon/paychk.png" style="height: 80px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 20px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 500;">Others Charges</ion-label>
+          </ion-item>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+    <ion-card style="padding-bottom: 20px; border: 1px solid midnightblue; border-radius: 10px; margin:14px;">
+    <ion-row >
+      <ion-col >
+        <h5 style="text-align: center;">Intransit</h5>
+        <ion-input type="number" value="{{datalist?.[0].INTRANSIT}}"  style="font-weight: bolder;color: #DB311B;"></ion-input>
+      </ion-col>
+      <ion-col>
+        <h5 style="text-align: center;">Delivered</h5>
+        <ion-input type="number" value="{{datalist?.[0].DELIVERED}}"  style="font-weight: bolder;color: #DB311B;"></ion-input>
+      </ion-col>
+      <ion-col>
+        <h5 style="text-align: center;">Sales</h5>
+        <ion-input type="number" value="{{datalist?.[0].TotalSales}}"   style="font-weight: bolder;color: #DB311B;"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container">
+    <ion-row style="text-align: center; font-size: 14px;">
+      <ion-col style="border-right: 1px solid;" ><ion-icon name="home"></ion-icon>&nbsp; &nbsp;Home</ion-col>
+      <ion-col style="border-right: 1px solid;" (click)="openProfile()"><ion-icon name="person"></ion-icon>&nbsp; &nbsp;Profile</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+

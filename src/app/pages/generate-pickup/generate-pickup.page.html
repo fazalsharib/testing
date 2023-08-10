@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Generate Pickup</ion-title>
+    <!-- <ion-icon name="notifications-outline" slot="end" style="color:white; padding-right: 12px; font-size: 22px;"></ion-icon>
+    <ion-avatar slot="end" style="background-color: white; height: 40px; width: 40px;margin-right: 10px;border: 1px solid #DB311B;">
+      <img src="../../../assets/icon/user.png">
+    </ion-avatar> -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pickup-order" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar [(ngModel)]="filterTerm" type="number" style="background-color: #291670;" placeholder="Enter Order Number Here....!"></ion-searchbar>
+</ion-header>
+
+<ion-content  id="background-content" style="background-color: #DB311B !important;">
+  <ion-card  style="border: 1px solid darkblue; border-radius: 20px;" *ngFor="let listData of listData | filter:filterTerm ; index as i;"
+  [ngClass]="{ 'use-pink-background': currentSelected[i]}"
+  (click)="handleClick(i, listData.OrderNo)">
+
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px; ">{{listData.AwbNo}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Bookdate}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Customer_Name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Consignee</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Consignee_Name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Mode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Mode_Name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking From</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.FromLocation}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Destination</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ToLocation}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Quantity</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Qty}} </h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Actual Weight</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ActualWt}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Customer Mobile</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Customer_Tel}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container">
+    <ion-button class="button-native"  expand="full" (click)="gotoNextPage()" *ngIf="selectableOrder.length === 0 || selectableOrder.length === undefined">Total Shipment Number =&nbsp;{{listData.length}}</ion-button>
+    <ion-button class="button-native" expand="full" (click)="gotoNextPage()" *ngIf="selectableOrder.length > 0" >Shipment Selected =&nbsp;{{selectableOrder.length}} &nbsp; click me!</ion-button>
+  </ion-toolbar>
+</ion-footer>

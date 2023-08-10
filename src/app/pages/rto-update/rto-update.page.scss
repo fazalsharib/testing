@@ -1,0 +1,74 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+// .button-native1{
+//   --background: blue !important;
+//   width: 6rem;
+// }
+.button-native2{
+  --background: #DB311B !important;
+  width: 6rem;
+}
+.button-native{
+  --background: green !important;
+  width: 6rem;
+}
+
+.item-native{
+  background-color: white !important;
+  color: darkblue;
+}
+ion-label{
+  padding: 16px;
+}
+h5{
+  color: #DB311B;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+ion-textarea{
+  border: 1px solid darkblue ;
+  padding-left: 16px !important;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 5px;
+}
+ion-card{
+  border: 1px solid #DB311B;
+  border-radius: 10px;
+}
+span{
+  margin-top: -12px !important;
+  margin-left: 32px;
+  z-index: 101;
+  position: absolute;
+  background: white;
+  padding: 5px;
+  font-size: 14px;
+  color: #DB311B;
+}
+ion-item{
+border: 1px solid #DB311B;
+border-radius: 5px;
+}
+h5{
+  margin-top: -16px;
+  padding-left: 16px;
+  color: #DB311B;
+  font-size: 15px;
+}
+.span1{
+  margin-top: 2px !important;
+  margin-left: 32px;
+  z-index: 101;
+  position: absolute;
+  background: white;
+  padding: 5px;
+  font-size: 14px;
+  color: #DB311B;
+}

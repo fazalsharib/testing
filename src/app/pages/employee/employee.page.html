@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Employee Operation</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar style="background-color: #291670;" placeholder="Track Here......!"></ion-searchbar>
+</ion-header>
+
+<ion-content scroll-y="true">
+  <ion-item style="text-align: center;font-size: 20px;color: darkblue;">
+    <ion-label>Employee Operation</ion-label>
+  </ion-item>
+
+    <ion-row>
+      <ion-col style="margin: -10px; margin-top: 0px; margin-left: 0px; margin-right: -2px;">
+        <ion-card style="border-radius: 16px; border:1px solid midnightblue;" (click)="openAddEmployee()" >
+          <img src="../../../assets/icon/image (10).png" style="height: 60px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 16px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 600;">Add Employee</ion-label>
+          </ion-item>
+        </ion-card>
+
+        <ion-card style="border-radius: 16px; border:1px solid midnightblue;" (click)="openEditEmployee()" >
+          <img src="../../../assets/icon/image (11).png" style="height: 60px; margin-left: 34%; margin-top: 16px;">
+          <ion-item style="font-size: 16px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 600;">Edit Employee</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col style="margin: -10px; margin-top: 0px; margin-left: -12px; margin-right: -2px;" >
+        <ion-card style="border-radius: 20px; border:1px solid midnightblue;" (click)="openDeleteEmployee()">
+          <img src="../../../assets/icon/image (12).png" style="height: 60px; margin-left: 34%; margin-top: 20px;">
+          <ion-item style="font-size: 16px; color: #291670; text-align: center;">
+            <ion-label style="font-weight: 600;">Delete Employee</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container">
+    <ion-row style="text-align: center; font-size: 14px;">
+      <ion-col style="border-right: 1px solid;" (click)="openDashboard()"><ion-icon name="home"></ion-icon>&nbsp; &nbsp;Home</ion-col>
+      <ion-col style="border-right: 1px solid;" (click)="openProfile()"><ion-icon name="person"></ion-icon>&nbsp; &nbsp;Profile</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+
+

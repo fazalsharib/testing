@@ -1,0 +1,51 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+.button-native{
+  --background: #291670 !important;
+}
+
+h5{
+  margin-top: -16px;
+  padding-left: 16px;
+  color: #DB311B;
+  font-size: 15px;
+}
+
+.alert-wrapper.sc-ion-alert-md{
+  border-radius: 16px;
+  height: 18rem;
+  width: 18rem;
+}
+.ionic-selectable:not(.ionic-selectable-has-label) {
+  // background-color: #291670;
+  padding-left: 10px;
+  padding: 5px;
+  color: black;
+}
+.item-native{
+  // --background: midnightblue;
+  color: midnightblue;
+  margin-left: 14px;
+  padding-right: 8px;
+}
+.item-native1{
+  --background: border-box !important;
+}
+.ionic-selectable{
+  max-width: 100%;
+  background: white;
+}
+.ionic-selectable-value{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 16px !important;
+}
+.use-pink-background{
+  background-color: gray;
+}

@@ -1,0 +1,57 @@
+.toolbar-background{
+  --background: midnightblue;
+}
+
+.hr-class{
+  border: 1px solid darkgray;
+    z-index: 101;
+    position: relative;
+    margin-top: -11px;
+    height: auto;
+    width: 50%;
+    margin-left: 10rem;
+}
+.hr1-class{
+    border: 1px solid black;
+    z-index: 101;
+    position: relative;
+    margin-top: -19px;
+    height: auto;
+}
+
+.hr2-class{
+  border: 1px solid black;
+  z-index: 101;
+  position: relative;
+  margin-top: -36px;
+  height: auto;
+}
+.hr3-class{
+  border: 1px solid black;
+  z-index: 101;
+  position: relative;
+  height: auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  //font-weight: 700;
+}
+#toolbar-background{
+  --background: midnightblue;
+}
+.toolbar-title{
+  color: white;
+}
+
+
+.barcode {
+  font-family: "Libre Barcode 128", "Courier New", Courier, monospace;
+  font-weight: normal;
+  font-size: 52px;
+  white-space: nowrap;
+}
+
+.with-text {
+  font-family: "Libre Barcode 128 Text";
+}

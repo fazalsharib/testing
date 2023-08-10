@@ -1,0 +1,51 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+#background-content{
+  --background: midnightblue !important;
+}
+.button-native3{
+  --background: green !important;
+  color: white;
+  margin-right: 10px;
+  width: 6rem;
+  height: 46px;
+  font-size: 14px;
+}
+.button-native1{
+  --background: red !important;
+  color: white;
+  margin-right: 10px;
+  width: 6rem;
+  height: 46px;
+  font-size: 14px;
+}
+
+.button-native{
+  --background: border-box;
+}
+.item-native{
+  background-color: white !important;
+  color: darkblue;
+}
+h5{
+  margin-top: -16px;
+  padding-left: 16px;
+  color: #DB311B;
+  font-size: 15px;
+}
+
+.alert-wrapper.sc-ion-alert-md{
+  border-radius: 16px;
+  height: 18rem;
+  width: 18rem;
+}
+.use-pink-background{
+  background-color: darkgrey;
+}
+

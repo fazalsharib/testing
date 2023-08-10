@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // API_END_POST: 'https://3plindia.com/3pl/api/ThreePL/GetOtp?MobileNo='
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

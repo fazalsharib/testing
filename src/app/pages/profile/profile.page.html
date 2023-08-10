@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Profile</ion-title>
+      <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <div class="back_image bg_image" ><img src="{{profileData?.logo}}"></div>
+
+    <div class="content_div">
+      <div class="round_div" >
+        <!-- <div class="user_div bg_image" ><img src="{{profileData?.logo}}"></div> -->
+        <ion-avatar slot="end" style="background-color: white; height: 86px; width: 86px;margin-right: 10px;border: 1px solid #DB311B;">
+          <img src="{{profileData?.logo}}">
+        </ion-avatar>
+      </div>
+
+      <ion-label class="username">{{userInfo?.Vendor_Name}}</ion-label>
+
+      <ion-segment value="info" mode="md" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="info">
+          <ion-label>Basic Info</ion-label>
+        </ion-segment-button>
+        <!-- <ion-segment-button value="vendorRate">
+          <ion-label>Vendor Rate</ion-label>
+        </ion-segment-button> -->
+      </ion-segment>
+    </div>
+
+
+    <ion-card style="background: whitesmoke; border: 1px solid midnightblue;">
+      <ion-card-header>
+        <h5 style="text-align: center; background-color: midnightblue; padding: 14px; color: white;  border-radius: 10px;">Vendor Details</h5>
+          <ion-row class="ion-no-padding ion-no-margin">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Vendor Name</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: midnightblue; font-weight: bold;">{{profileData?.Vendor_Name}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-no-padding ion-no-margin" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Vendor Code</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: midnightblue; font-weight: bold;">{{profileData?.Vendor_Code}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding ion-no-margin" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >User Name</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: midnightblue; font-weight: bold;">{{profileData?.Username}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Email-ID</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color:midnightblue;">{{profileData?.Vendor_eMail}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Contact No</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="font-weight: bold; color:midnightblue;">{{profileData?.Vendor_MobNo1}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Alternate No</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color:midnightblue;">{{profileData?.Vendor_MobNo2}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Address-1</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color:midnightblue;">{{profileData?.Vendor_Add1}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Address-2</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: midnightblue;">{{profileData?.Vendor_Add2}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >City</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style=" color:midnightblue;">{{profileData?.Location_code}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >State</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color:midnightblue;">{{profileData?.State_code}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding " style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Pincode</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: midnightblue;">{{profileData?.Vendor_Pin}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-no-padding" style="margin-top: -16px;">
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color: red;" >Status</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-no-margin">
+              <ion-item lines="none">
+                <ion-label style="color:midnightblue;">{{profileData?.Status}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+      </ion-card-header>
+    </ion-card>
+
+  </div>
+</ion-content>

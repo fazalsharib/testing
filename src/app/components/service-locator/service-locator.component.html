@@ -1,0 +1,35 @@
+<ion-content class="ion-padding">
+    <!-- <ion-list>
+      <ion-radio-group value="pincode">
+        <ion-list-header>
+          <ion-label style="text-align: center; font-weight: 600; font-size: 18px;">Pincode/Location</ion-label>
+        </ion-list-header>
+
+        <ion-item lines="none">
+          <ion-label>Search By Pincode</ion-label>
+          <ion-radio slot="start" value="pincode" (ionChange)="searchByName('pincode')"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none" >
+          <ion-label>Search By Name</ion-label>
+          <ion-radio slot="start" value="location" (ionChange)="searchByName('location')"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+    </ion-list> -->
+    <ion-item lines="none">
+      <ion-label>Pincode</ion-label>
+    </ion-item>
+
+
+    <ion-item lines="none" *ngIf="pincode">
+      <ion-input type="number" placeholder="Pincode Here..!!"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="location">
+      <ion-input type="text" placeholder="Location Name Here..!!"></ion-input>
+    </ion-item>
+    <ion-button class="button-native" style="padding-left: 14px; padding-right: 14px; margin-top: 10px;" expand="full">Find</ion-button>
+</ion-content>
+
+

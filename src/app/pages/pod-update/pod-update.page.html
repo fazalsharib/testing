@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Pod Update</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar style="background-color: #291670;" placeholder="Track Here......!"></ion-searchbar>
+</ion-header>
+
+<ion-content scroll-y="true" id="background-content" style="background-color: #DB311B !important;">
+  <ion-card  style="border: 2px solid red; border-radius: 20px;" *ngFor="let item of listData">
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: blue; padding-top: 20px;">{{item.AWBNumber}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: blue;">{{item.BookDate}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Consignee</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: blue;">{{item.Consignee}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Consignee Address</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: blue; ">{{item.ConsigneeAddress}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Consignee Contact</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: blue;">{{item.ConsigneeContact}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Consignee Pincode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: blue; ">{{item.ConsigneePINCode}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <img src="../../../assets/icon/Phone.png">
+        <p >Call</p>
+      </ion-col>
+      <ion-col>
+        <img src="../../../assets/icon/message.png">
+        <p >Message</p>
+      </ion-col>
+      <ion-col (click)="openPodInnerPage(item)">
+        <img src="../../../assets/icon/Update.png">
+        <p >POD Update</p>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>
+

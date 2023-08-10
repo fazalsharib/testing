@@ -1,0 +1,9 @@
+<div class="ion-padding">
+    <ion-searchbar style="padding-left: 0px; padding-right: 0px;" placeholder="Select Pickup Boy" (ionInput)="searchData($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of pickupboyList" (click)="onClick(item)">
+      <ion-icon slot="end" name="checkmark-outline" *ngIf="selectedValue === item.PickupBoyCode"></ion-icon>
+      <ion-label>{{item.PickupName || titlecase}}</ion-label>
+    </ion-item>
+  </ion-list>
+</div>

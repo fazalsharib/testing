@@ -1,0 +1,247 @@
+<ion-header style="background: midnightblue;">
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Print Page</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dasboard" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- <ion-item class="item-native"  style="padding-left: 20px; padding-right: 16px;">
+    <ion-input type="text" style="background: white; color: black;  padding-left: 10px !important;" placeholder="Enter Docket No Here...!!!!" [(ngModel)]="pickupSheetNo"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" style="border: 1px solid white;font-family: Code_93; margin-left: 20px; margin-right: 16px; margin-top: 10px; margin-bottom: 10px;" class="button-native" (click)="findBypickupSheetNo()">Find Docket No</ion-button> -->
+</ion-header>
+
+<ion-content>
+  <ion-segment value="Print" [(ngModel)]="type" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="Print">
+      <ion-label>Print</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Transactions">
+      <ion-label>Transactions</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Invoice">
+      <ion-label>Invoice</ion-label>
+    </ion-segment-button>
+    <!-- <ion-segment-button value="3PL_Invoice">
+      <ion-label>3PL_Invoice</ion-label>
+    </ion-segment-button> -->
+  </ion-segment>
+
+  <div *ngIf="printType">
+  <ion-card style="border: 1px solid darkblue; border-radius: 20px;"  *ngFor="let item of walletData; let i = index" (click)="printItem(item)">
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px; ">{{item.awbno}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer Name</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.Customername}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Amount</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionAmt}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Transaction Status</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionStatus}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Transaction Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionDate}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</div>
+
+<div *ngIf="transactionType">
+  <ion-card style="border: 1px solid darkblue; border-radius: 20px;"  *ngFor="let item of walletData;">
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px; ">{{item.awbno}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer Name</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.Customername}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Amount</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionAmt}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Transaction Status</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionStatus}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Transaction Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionDate}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</div>
+
+<div *ngIf="invoiceType">
+  <ion-card style="border: 1px solid darkblue; border-radius: 20px;"  *ngFor="let item of walletData; let i = index" (click)="printInvoiceItem(item)">
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px; ">{{item.awbno}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer Name</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.Customername}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Amount</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionAmt}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Transaction Status</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionStatus}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Transaction Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionDate}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</div>
+
+<div *ngIf="threeplInvoiceType">
+  <ion-card style="border: 1px solid darkblue; border-radius: 20px;"  *ngFor="let item of walletData; let i = index" (click)="print3plInvoiceItem(item)">
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px; ">{{item.awbno}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer Name</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.Customername}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Amount</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionAmt}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Transaction Status</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionStatus}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Transaction Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{item.TransactionDate}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</div>
+</ion-content>

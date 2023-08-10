@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar class="toolbar-background">
+    <ion-title style="color: white;" >Shipment Select</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pickup-order" style="color: white;"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar [(ngModel)]="filterTerm" style="background-color: #291670; padding-left: 16px; padding-right: 11px;" placeholder="Track Here......!"></ion-searchbar>
+  <ion-row style="background: midnightblue;">
+    <ion-col style="padding-left: 16px;">
+      <ion-input type="number" [(ngModel)]="awbNumber" style="border: 1px solid white; background-color: white; color: midnightblue;text-align: center;" placeholder="Enter AWB Number..!"></ion-input>
+    </ion-col>
+    <ion-col style="padding-top: 0px;">
+      <ion-button class="button-native" expand="full" style="height: 42px; border: 1px solid white; margin-right: 6px;" (click)="addAwbNo()">ADD</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content scroll-y="true" id="background-content" style="background-color: #DB311B !important;">
+  <ion-card  style="border: 2px solid red; border-radius: 20px;" *ngFor="let listData of pageData | filter: filterTerm;" (click)="removeItem(listData)">
+    <ion-row >
+      <ion-col>
+          <h5 style="padding-top: 20px;">AWB Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; padding-top: 20px;">{{listData.AwbNo}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5 >Order Number</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.OrderNo}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking Date</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.Bookdate}}</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col>
+          <h5>Customer</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.Customer_Name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Consignee</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; "> {{listData.Consignee_Name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Mode</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue;">{{listData.Mode_Name}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Booking From</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.FromLocation}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+          <h5>Destination</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ToLocation}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Quantity</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Qty}} </h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Actual Weight</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.ActualWt}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col >
+          <h5>Customer Mobile</h5>
+      </ion-col>
+      <ion-col>
+          <h5 style="color: darkblue; ">{{listData.Customer_Tel}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="toolbar-container">
+    <ion-button class="button-native" expand="full" (click)="presentPopover()">Next</ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+

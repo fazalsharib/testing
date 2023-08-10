@@ -1,0 +1,29 @@
+ion-card{
+    border-radius: 12px;
+    border: 1px solid midnightblue;
+}
+ion-card-header{
+    text-align: center;
+    color: black;
+    font-weight: 800;
+    font-style: inherit;
+    text-decoration: underline;
+}
+h5{
+  margin-left: 12px;
+  margin-right: 4px;
+}
+ion-label{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    // text-decoration: underline;
+}
+p{
+  font-weight: 600;
+}
+ion-button{
+  margin-left: 40%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}

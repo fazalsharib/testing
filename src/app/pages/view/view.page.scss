@@ -1,0 +1,37 @@
+.toolbar-background{
+  --background: #291670;
+}
+.toolbar-container{
+  --background: #291670 !important;
+  color: white;
+  font-size: 16px;
+}
+
+p{
+ color: darkblue;
+ margin-top: 0px;
+//  font-weight: 800;
+ font-size: 14px;
+}
+img{
+  height: 32px;
+}
+ion-input{
+  border: 1px solid #291670;
+  text-align: center !important;
+  font-size: large;
+  border-radius: 10px;
+  color: darkblue;
+}
+h5{
+  margin-top: -16px;
+  padding-left: 16px;
+  color: #DB311B;
+  font-size: 15px;
+
+}
+
+p {
+  font-family: Lato;
+}
+
